@@ -1,0 +1,38 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url = env("DATABASE_URL")
+}
+
+// Tabla para usuarios registrados
+model Usuario {
+  id       Int      @id @default(autoincrement())
+  nombre_usuario String
+  correo_electronico String   @unique
+  contrasena String
+}
+
+// Tabla para empleados
+model empleado {
+  id       Int       @id @default(autoincrement())
+  nombre  String
+  apellido String
+  rol   String
+  contrasena String
+}
+
+// Tabla para tenis
+model tenis {
+  id          Int       @id @default(autoincrement())
+  marca       String
+  modelo        String
+  color        String
+  numero       Float
+  cantidad     Float
+  precio       Float
+  imagen       String
+}
+  
